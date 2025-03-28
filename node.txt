@@ -1,0 +1,6 @@
+// CommonJS, every file is a module (by ddefault)
+// Module -Encapsulated code (only share minimum)
+
+Export is an object in module where you can dump something and access else where
+You can dump inside of it using module.exports
+You can access the dumps using require('path of the file exporting')

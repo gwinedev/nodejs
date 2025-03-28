@@ -1,0 +1,32 @@
+// async
+const { readFile, writeFile } = require('fs')
+
+// callbacks are run when a function indicated is complete (err, result)
+
+console.log('Start to read')
+// Since this is Async, the tasks to write and read is offloaded and continues with the others
+readFile('./3-module/filesystem/second.txt', 'utf-8', (err,result) => {
+    if(err){
+        console.log(err);
+        return
+    }
+    const first = result;
+    readFile('./3-module/filesystem/second.txt', 'utf-8', (err,result) => {
+        if (err){
+            console.log(`Error from reading second.txt:\n${err}`);
+            return       
+        }
+        const second = result;
+        writeFile(
+            './3-module/filesystem/async-third.txt', 
+            `This is my third file\n${second}\n${first}`, 
+            (err, result) => {
+            if(err){
+                console.log(`Error from writing the third file:\n${err}`)
+                return
+            }
+            console.log('Done with this task');
+        })
+    })
+})
+console.log("Starting the next file");
