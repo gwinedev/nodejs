@@ -1,6 +1,78 @@
-// CommonJS, every file is a module (by ddefault)
+// CommonJS, every file is a module (by default)
 // Module -Encapsulated code (only share minimum)
 
+MODULE
 Export is an object in module where you can dump something and access else where
 You can dump inside of it using module.exports
 You can access the dumps using require('path of the file exporting')
+
+when you import a module (file) into another file, you automatically invoke it. Even if you don't export it
+
+BUILT IN MODULES:
+- OS
+- PATH
+- FS
+- HTTP
+
+
+npm = node package manager
+It helps us to :
+    reuse our own code in other project
+    use code by other developers
+    share our solution with other developers
+
+in npm, a reusable code is called PACKAGE (Shareable JS code)
+no quality control in npm, anyone can publish anything
+
+install as local or global dependency - use in a particular project
+npm install i <packageName>
+
+package.json - manifest file (stores important info about project/package)
+To create:
+    manual approach (create package.json in the root, create properties etc)
+    npm init (step by step, press enter to skip)
+    npm init -y
+
+if you want to publish your package, use a unique name
+
+dependencies are stored in a npm module folder
+Node packages don't need to be installed, but dependencies should be
+
+package.json
+gives the details of all package dependencies
+NOTE: NODEMON IS SAVED AS A devDependency cause it's not needed in production. It's only needed during developing the app.
+
+SCRIPTS
+Scripts is used to set up the commands
+
+"start" :"node app.js"
+When you type npm start, it tells the computer to run node app.js, which starts your program.
+
+"dev": "nodemon app.js"
+When you type npm run dev, it runs nodemon app.js instead of just node app.js.
+
+npx = execute =  file-runner
+
+package-lock.json
+ - helps to lock version of packages used during production.
+ versions comes in 3 separate like "^4.17.29"
+ CHANGES:
+ First digit change means = major change
+ second digit change = minor change and backward compatible
+third digit = patch for bug fix
+
+EVENT LOOP
+
+JS is Synchronous (reads code line by line) and single threaded
+But JS Browser does provide some api (callbacks) that can help with time consuming codes
+It doesn't work with all codes though.
+JS always execute callbacks (settimer) last, no matter the wait time
+
+CALLBACKS
+A callback is a function that you pass as an argument to another function,
+so it gets called later, usually when a task is done.
+
+Eventloop registers callbacks and executes it only when done with the
+normal operations to avoid delay since only time consuming operations are put in the callbacks
+
+readFile is offloaded to the readFile

@@ -1,5 +1,6 @@
 const http = require('http');
 
+// Asynchronous code
 const server = http.createServer((req, res) => {
     if(req.url === '/'){
         res.end('I am using the res.end to fill the request')

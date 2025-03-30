@@ -1,0 +1,3 @@
+This is awesome:
+This is the first file "\n"
+/This is the second file
