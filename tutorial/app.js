@@ -1,36 +1,17 @@
-const { readFile, writeFile } = require('fs').promises;
-// const util = require('util');
-// const readFilePromise = util.promisify(readFile)
-// const writeFilePromise = util.promisify(writeFile)
+const { log } = require('console');
+const { subscribe } = require('diagnostics_channel');
+const EventEmitter = require('events'); //EventEmitter is a class
 
+// let's instantiate it i.e. make an object of the class
+const customEmitter = new EventEmitter()
 
-// 
+// subscribe to the response event
+customEmitter.on('response', (name, id) => {
+    console.log(`data emitted from ${name} with id ${id}`);
+})
 
-const start = async () => {
-    try {
-    const first = await readFile('./3-module/filesystem/first.txt', 'utf-8')
-    const second = await readFile('./3-module/filesystem/second.txt', 'utf-8')
-
-    await writeFile('./3-module/filesystem/result.txt', `This is awesome:\n${first}\n/${second}`,  {flag: 'a'})
-    console.log(first, second);
-    } catch (error) {
-        console.log(error);
-    }
-}
-start()
-
-// getText('./3-module/filesystem/third.txt')
-//     .then(result => console.log(result))
-//     .catch((err => console.log(err)))
-// 
-// 
-// const getText = (path) => {
-//     return new Promise((resolve, reject) => {
-//         readFile(path, 'utf-8', (err, data) => {
-//             if(err){
-//                 reject(err)
-//             }
-//             resolve(data)
-//         })
-//     })
-// }
+customEmitter.on('response', () => {
+    console.log(`data received`);
+})
+// to emit it by mimicking the browser since we don't have one
+customEmitter.emit('response', 'Luke', 32)
