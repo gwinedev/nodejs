@@ -6,8 +6,7 @@ const Note = require("../models/Note");
 router.get("/", async (req, res) => {
   try {
     const notes = await Note.find().sort({ createdAt: -1 });
-    // res.json(notes);
-    res.send("<h1> Home Page</h1>");
+    res.json({ Notes: notes });
   } catch (err) {
     res
       .status(500)
@@ -23,7 +22,9 @@ router.post("/", async (req, res) => {
     const savedNote = await newNote.save();
     res.status(201).json(savedNote);
   } catch (error) {
-    res.status(400).json({ message: "Failed to add note", error: err.message });
+    res
+      .status(400)
+      .json({ message: "Failed to add note", error: error.message });
   }
 });
 
