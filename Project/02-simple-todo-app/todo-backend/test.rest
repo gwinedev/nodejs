@@ -1,0 +1,20 @@
+### POST
+POST http://localhost:5000/todos
+Content-Type: application/json
+
+{
+    "task": "Buy a car",
+    "done": true
+}
+
+###GET ALL TODOS
+
+GET http://localhost:5000/todos
+
+### PATCH TODO
+
+PATCH http://localhost:5000/todos/:id
+
+{
+
+}
