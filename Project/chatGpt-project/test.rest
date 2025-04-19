@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
     "title": "Premier League",
-    "content": "Right now, Aston Villa is on against Newcastle and the score is 1 - 1."
+    "content": "Right now, Aston Villa is on against Newcastle and the score is 2 - 1."
 }
 
 ###GET ALL TODOS
@@ -12,10 +12,6 @@ Content-Type: application/json
 GET http://localhost:5000
 Content-Type: text/html
 
-### PATCH TODO
+### DELETE TODO
 
-PATCH http://localhost:5000/todos/:id
-
-{
-
-}
+DELETE http://localhost:5000/6803e3467699cce1144a1400
