@@ -35,6 +35,9 @@ router.delete("/:id", async (req, res) => {
     if (!deleted) {
       return res.status(404).json({ message: "Note not found" });
     }
-  } catch (error) {}
+    res.json({ message: "Note deleted", deleted });
+  } catch (error) {
+    res.status(500).json({ message: "Delete failed", error: err.message });
+  }
 });
 module.exports = router;
