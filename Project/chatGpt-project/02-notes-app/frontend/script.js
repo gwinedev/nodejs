@@ -1,0 +1,48 @@
+const form = document.getElementById("note-form");
+const titleInput = document.getElementById("title");
+const contentInput = document.getElementById("content");
+const notesList = document.getElementById("notes-list");
+
+const API_BASE = "http://localhost:5000";
+
+// const API_BASE = "http://localhost:5000";
+
+// // Fetch notes from backend and display
+// function fetchNotes() {
+//   fetch(`${API_BASE}/notes`)
+//     .then(res => res.json())
+//     .then(data => {
+//       notesList.innerHTML = "";
+//       data.forEach(note => {
+//         const li = document.createElement("li");
+//         li.innerHTML = `<strong>${note.title}</strong><p>${note.content}</p>`;
+//         notesList.appendChild(li);
+//       });
+//     })
+//     .catch(err => console.error("Error fetching notes:", err));
+// }
+
+// // Submit form to add new note
+// form.addEventListener("submit", function (e) {
+//   e.preventDefault();
+
+//   const note = {
+//     title: titleInput.value,
+//     content: contentInput.value
+//   };
+
+//   fetch(`${API_BASE}/notes`, {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify(note)
+//   })
+//     .then(res => res.json())
+//     .then(data => {
+//       fetchNotes(); // reload notes
+//       titleInput.value = "";
+//       contentInput.value = "";
+//     })
+//     .catch(err => console.error("Error adding note:", err));
+// });
+
+// fetchNotes();
