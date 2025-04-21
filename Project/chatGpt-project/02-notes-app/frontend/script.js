@@ -53,7 +53,7 @@ form.addEventListener("submit", function (event) {
 
   // Basic validation
   if (!title || !content) {
-    alert("Tilte and content must be provided");
+    alert("Title and content must be provided");
     return;
   }
   const note = {
