@@ -16,7 +16,7 @@ app.use("/notes", notesRoutes);
 
 // Mongo DB connection
 const MONGO_URI =
-  "mongodb+srv://gwine:elmagnifico@cluster0.pgudh.mongodb.net/notes-app?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://gwine:elmagnific0@todo-app.89cig.mongodb.net/02-notes-app?retryWrites=true&w=majority&appName=todo-app";
 
 mongoose
   .connect(MONGO_URI)

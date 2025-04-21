@@ -4,32 +4,48 @@ const contentInput = document.getElementById("content");
 const notesList = document.getElementById("notes-list");
 
 const API_BASE = "http://localhost:5000";
+// Fetch notes from backend and display
+function fetchNotes() {
+  fetch(`${API_BASE}`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data.length);
+      notesList.innerHTML = "";
+      data.forEach((note) => {
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>${note.title}</strong><p>${note.content}</p>`;
+        notesList.appendChild(li);
+      });
+    })
+    .catch((err) => console.error("Error fetching notes:", err));
+}
 
-// const API_BASE = "http://localhost:5000";
+// Submit form ti add new note
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
 
-// // Fetch notes from backend and display
-// function fetchNotes() {
-//   fetch(`${API_BASE}/notes`)
-//     .then(res => res.json())
-//     .then(data => {
-//       notesList.innerHTML = "";
-//       data.forEach(note => {
-//         const li = document.createElement("li");
-//         li.innerHTML = `<strong>${note.title}</strong><p>${note.content}</p>`;
-//         notesList.appendChild(li);
-//       });
-//     })
-//     .catch(err => console.error("Error fetching notes:", err));
-// }
+  const title = titleInput.value.trim()
+  const content = contentInput.value.trim()
+  
+  const note = {
+    title: titleInput,
+    content: contentInput.value,
+  };
+  fetch(`http://localhost:5000/notes`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(note),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      fetchNotes();
+      titleInput.value = "";
+      contentInput.value = "";
+    })
+    .catch((err) => console.error("Error adding note:", err));
+});
 
-// // Submit form to add new note
-// form.addEventListener("submit", function (e) {
-//   e.preventDefault();
-
-//   const note = {
-//     title: titleInput.value,
-//     content: contentInput.value
-//   };
+fetchNotes();
 
 //   fetch(`${API_BASE}/notes`, {
 //     method: "POST",

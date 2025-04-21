@@ -6,7 +6,7 @@ const Note = require("../models/Note");
 router.get("/", async (req, res) => {
   try {
     const notes = await Note.find().sort({ createdAt: -1 });
-    res.json({ Notes: notes });
+    res.json(notes);
   } catch (err) {
     res
       .status(500)
