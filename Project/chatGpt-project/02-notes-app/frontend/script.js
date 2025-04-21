@@ -37,11 +37,8 @@ function deleteNote(id) {
   })
     .then((res) => {
       if (!res.ok) {
-        throw new Error("Failed to delete note");
+        throw new Error("Failed to deletethe note");
       }
-      return res.json();
-    })
-    .then(() => {
       fetchNotes();
     })
     .catch((err) => console.error("Error deleting note", err));
