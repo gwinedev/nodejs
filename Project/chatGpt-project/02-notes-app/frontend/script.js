@@ -37,7 +37,7 @@ function deleteNote(id) {
   })
     .then((res) => {
       if (!res.ok) {
-        throw new Error("Failed to deletethe note");
+        throw new Error("Failed to delete the note");
       }
       fetchNotes();
     })
@@ -45,8 +45,8 @@ function deleteNote(id) {
 }
 
 // Submit form ti add new note
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
 
   const title = titleInput.value.trim();
   const content = contentInput.value.trim();
