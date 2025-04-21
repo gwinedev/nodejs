@@ -11,7 +11,7 @@ app.use(express.json());
 
 // Routes
 const notesRoutes = require("./routes/notes");
-app.use("/", notesRoutes);
+// app.use("/", notesRoutes);
 app.use("/notes", notesRoutes);
 
 // Mongo DB connection
