@@ -60,7 +60,7 @@ form.addEventListener("submit", function (event) {
     title,
     content,
   };
-  fetch(`http://localhost:5000/notes`, {
+  fetch(`${API_BASE}notes`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(note),
