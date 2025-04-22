@@ -3,15 +3,28 @@ POST http://localhost:5000/notes
 Content-Type: application/json
 
 {
-    "title": "Watching Hunter X Hunter",
-    "content": "This is my 4th entry"
+    "id":34,
+    "content": "Trying to see if it will detect my id"
 }
 
 ###GET ALL TODOS
 
-GET http://localhost:5000/notes
+GET http://localhost:5000/notes/1
 Content-Type: text/html
 
 ### DELETE TODO
 
-DELETE http://localhost:5000/notes/680674082fe78f50392c6f03
+DELETE http://localhost:5000/notes/4
+Content-Type: application/json
+
+{
+    "content":"It didn't work. ID is fixed"
+}
+
+###
+PUT http://localhost:5000/notes/2
+Content-Type: application/json
+
+{
+    "content":"It didn't work. ID is fixed"
+}

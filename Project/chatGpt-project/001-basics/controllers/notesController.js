@@ -43,7 +43,7 @@ exports.deleteNote = (req, res) => {
 // Put note
 exports.updateNote = (req, res) => {
   const id = parseInt(req.params.id);
-  const note = notes.fin((n) => n.id === id);
+  const note = notes.find((n) => n.id === id);
   if (!note) {
     return res.status(404).json({ messgae: "Note not found" });
   }
