@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const notesRoutes = require("./routes/notes");
+const mongoose = require("mongoose");
 
 dotenv.config(); //Load the dotenv variable
 const app = express();
@@ -17,6 +18,11 @@ app.use("/notes", notesRoutes); // Mount our notes API at the /notes path
 app.get("/", (req, res) => {
   res.send("Welcome to the Notes API");
 });
+
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

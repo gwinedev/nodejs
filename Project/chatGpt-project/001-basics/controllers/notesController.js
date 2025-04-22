@@ -1,17 +1,19 @@
-let notes = [
-  { id: 1, content: "Learn Express.js" },
-  { id: 2, content: "Understand APIs" },
-];
+const Note = require("../models/Note");
+
+// let notes = [
+//   { id: 1, content: "Learn Express.js" },
+//   { id: 2, content: "Understand APIs" },
+// ];
 
 // Get all notes
-exports.getAllNotes = (req, res) => {
+exports.getAllNotes = async (req, res) => {
+  const notes = await Note.find();
   res.json(notes);
 };
 
 // Get a note by ID
-exports.getNoteById = (req, res) => {
-  const id = parseInt(req.params.id);
-  const note = notes.find((nt) => nt.id === id);
+exports.getNoteById = async (req, res) => {
+  const note = await Note.findById(req.params.id);
   if (!note) {
     return res.status(404).send({ message: "Note not found" });
   }
@@ -19,20 +21,15 @@ exports.getNoteById = (req, res) => {
 };
 
 // Post a new note
-exports.createNote = (req, res) => {
-  const { content } = req.body;
-  const newNote = {
-    id: notes.length + 1,
-    content,
-  };
-  notes.push(newNote);
+exports.createNote = async (req, res) => {
+  const note = new Note({ content: req.body.content });
+  await note.save();
   res.status(201).json(newNote);
 };
 
 // Delete note
-exports.deleteNote = (req, res) => {
-  const id = parseInt(req.params.id);
-  const index = notes.findIndex((n) => n.id === id);
+exports.deleteNote = async (req, res) => {
+  const note = await Note.findByIdAndDelete(req.params.id)
   if (index < 0) {
     return res.status(404).json({ message: "Note not found" });
   }
@@ -41,7 +38,7 @@ exports.deleteNote = (req, res) => {
 };
 
 // Put note
-exports.updateNote = (req, res) => {
+exports.updateNote = async (req, res) => {
   const id = parseInt(req.params.id);
   const note = notes.find((n) => n.id === id);
   if (!note) {
