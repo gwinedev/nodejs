@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 // Routes
-app.use("/notes", notesRoutes);
+app.use("/notes", notesRoutes); // Mount our notes API at the /notes path
 
 // Home route
 app.get("/", (req, res) => {
