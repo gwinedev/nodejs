@@ -24,7 +24,7 @@ exports.getNoteById = async (req, res) => {
 exports.createNote = async (req, res) => {
   const note = new Note({ content: req.body.content });
   await note.save();
-  res.status(201).json(newNote);
+  res.status(201).json(note);
 };
 
 // Delete note

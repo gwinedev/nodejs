@@ -1,20 +1,19 @@
 ### POST
-POST http://localhost:5000/notes
+POST http://localhost:5001/notes
 Content-Type: application/json
 
 {
-    "id":34,
-    "content": "Trying to see if it will detect my id"
+    "content": "Reading Robinson Crusoe by Daniel Depaul"
 }
 
 ###GET ALL TODOS
 
-GET http://localhost:5000/notes/1
+GET http://localhost:5001/notes
 Content-Type: text/html
 
 ### DELETE TODO
 
-DELETE http://localhost:5000/notes/4
+DELETE http://localhost:5001/notes/6807d5f88b1bfc86ead2a4ba
 Content-Type: application/json
 
 {
@@ -22,7 +21,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:5000/notes/2
+PUT http://localhost:5001/notes/6807d5f88b1bfc86ead2a4ba
 Content-Type: application/json
 
 {
