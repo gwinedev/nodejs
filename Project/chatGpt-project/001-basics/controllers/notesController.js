@@ -29,21 +29,22 @@ exports.createNote = async (req, res) => {
 
 // Delete note
 exports.deleteNote = async (req, res) => {
-  const note = await Note.findByIdAndDelete(req.params.id)
-  if (index < 0) {
+  const note = await Note.findByIdAndDelete(req.params.id);
+  if (!note) {
     return res.status(404).json({ message: "Note not found" });
   }
-  notes.splice(index, 1);
   res.json({ messgae: "Noted deleted" });
 };
 
 // Put note
 exports.updateNote = async (req, res) => {
-  const id = parseInt(req.params.id);
-  const note = notes.find((n) => n.id === id);
+  const note = await Note.findByIdAndUpdate(
+    req.params.id,
+    { content: req.body.content },
+    { new: true, runValidators: true }
+  );
   if (!note) {
     return res.status(404).json({ messgae: "Note not found" });
   }
-  note.content = req.body.content;
   res.json(note);
 };

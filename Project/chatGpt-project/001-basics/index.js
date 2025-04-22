@@ -19,6 +19,8 @@ app.get("/", (req, res) => {
   res.send("Welcome to the Notes API");
 });
 
+console.log("Loaded MONGO_URI:", process.env.MONGO_URI);
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
