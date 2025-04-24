@@ -13,7 +13,7 @@ app.use(express.json());
 
 // Routes
 app.use("/notes", notesRoutes); // Mount our notes API at the /notes path
-
+app.use("/api/users", require("./routes/users"));
 // Home route
 app.get("/", (req, res) => {
   res.send("Welcome to the Notes API");

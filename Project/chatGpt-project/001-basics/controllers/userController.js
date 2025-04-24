@@ -1,6 +1,6 @@
-const User = require("../models/Users");
+const User = require("../models/User");
 const generateToken = require("../utils/generateToken");
-const asyncHandler = require("../middleware/asynchandler");
+const asyncHandler = require("../middleware/asyncHandler");
 
 // register new user
 exports.registerUser = asyncHandler(async (req, res) => {
