@@ -18,3 +18,17 @@ const userSchema = new mongoose.Schema(
 );
 
 // Hash pawword before saving
+userSchema.pre("save", async function (next) {
+  // if password is still the same, don't hash it
+  if (!this.isModified("password")) return next();
+  //Create a cryptographic salt to make the hash more secure
+  const salt = await bcrypt.genSalt(10);
+  // Hash the password with the salt and Replace the raw password with its hashed version
+  this.password = await bcrypt.hash(this.password, salt);
+});
+
+userSchema.methods.matchPassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password);
+};
+
+module.exports = mongoose.model('User', userSchema)
