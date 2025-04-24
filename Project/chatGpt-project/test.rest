@@ -3,7 +3,7 @@ POST http://localhost:5001/notes
 Content-Type: application/json
 
 {
-    "content": "Reading Robinson Crusoe by Daniel Depaul"
+    "content": "My Wife will be arriving tomorrow. I am so excited"
 }
 
 ###GET ALL TODOS
@@ -13,7 +13,7 @@ Content-Type: text/html
 
 ### DELETE TODO
 
-DELETE http://localhost:5001/notes/6807d5f88b1bfc86ead2a4ba
+DELETE http://localhost:5001/notes/6807be40c9024a6cbdabde9a
 Content-Type: application/json
 
 {
@@ -21,9 +21,9 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:5001/notes/6807d5f88b1bfc86ead2a4ba
+PUT http://localhost:5001/notes/6807be40c9024a6cbdabde9a
 Content-Type: application/json
 
 {
-    "content":"It didn't work. ID is fixed"
+    "content":"I just updated this"
 }
