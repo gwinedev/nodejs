@@ -37,7 +37,7 @@ exports.loginUser = asyncHandler(async (req, res) => {
   const user = await User.findOne({ email });
   if (user && (await user.matchPassword(password))) {
     res.json({
-      _id: user_.id,
+      id: user._id,
       name: user.name,
       email: user.email,
       token: generateToken(user._id),
