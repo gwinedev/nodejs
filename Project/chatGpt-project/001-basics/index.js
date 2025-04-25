@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const notesRoutes = require("./routes/notes");
 const mongoose = require("mongoose");
+const usersRoutes = require("./routes/users");
 
 dotenv.config(); //Load the dotenv variable
 const app = express();
@@ -13,13 +14,12 @@ app.use(express.json());
 
 // Routes
 app.use("/notes", notesRoutes); // Mount our notes API at the /notes path
-app.use("/api/users", require("./routes/users"));
+app.use("/api/users", usersRoutes);
+
 // Home route
 app.get("/", (req, res) => {
   res.send("Welcome to the Notes API");
 });
-
-console.log("Loaded MONGO_URI:", process.env.MONGO_URI);
 
 mongoose
   .connect(process.env.MONGO_URI)

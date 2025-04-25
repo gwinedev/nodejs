@@ -3,17 +3,17 @@ POST http://localhost:5001/notes
 Content-Type: application/json
 
 {
-    "content": "My Wife will be arriving tomorrow. I am so excited"
+    "content": "Psalms 16:6 = Lines are fallen unto me in pleasant places.Yea, i have a godly heritage."
 }
 
 ###GET ALL TODOS
 
-GET http://localhost:5001/notes
+GET http://localhost:5001/notes/
 Content-Type: text/html
 
 ### DELETE TODO
 
-DELETE http://localhost:5001/notes/6807be40c9024a6cbdabde9a
+DELETE http://localhost:5001/notes/68094839b21f39b73979b454
 Content-Type: application/json
 
 {
@@ -21,9 +21,19 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:5001/notes/6807be40c9024a6cbdabde9a
+PUT http://localhost:5001/notes/68094839b21f39b73979b454
 Content-Type: application/json
 
 {
     "content":"I just updated this"
+}
+
+###
+POST http://localhost:5001/api/users/register
+Content-Type: application/json
+
+{
+    "name":"Godwin",
+    "email":"gwindev@gmail.com",
+    "password":"okoeguale"
 }
