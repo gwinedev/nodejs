@@ -5,7 +5,7 @@ const asyncHandler = require("../middleware/asyncHandler");
 // register new user
 exports.registerUser = asyncHandler(async (req, res) => {
   // Extract user details from the body of the request
-  const { name, email, passsword } = req.body;
+  const { name, email, password } = req.body;
 
   // Prevents duplicate accounts with the same email
   const userExists = await User.findOne({ email });
@@ -18,7 +18,7 @@ exports.registerUser = asyncHandler(async (req, res) => {
 
   console.log("Incoming data", req.body);
 
-  const user = await User.create({ name, email, passsword });
+  const user = await User.create({ name, email, password });
   console.log("User created", user.name);
 
   res.status(201).json({
