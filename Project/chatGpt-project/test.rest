@@ -2,7 +2,7 @@
 POST http://localhost:5000/tasks
 Content-Type:application/json
 
-    {"Polar":"Polar bears are interesting creatures"}
+    {"name":"Polar bears are interesting creatures"}
 
 ###
 GET http://localhost:5000/tasks

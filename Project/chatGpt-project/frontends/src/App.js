@@ -26,7 +26,7 @@ function App() {
   // Delete a task
   const deleteTask = (id) => {
     axios
-      .delete(`${url}/${id}}`)
+      .delete(`${url}/${id}`)
       .then(() => setTasks(tasks.filter((task) => task._id !== id)))
       .catch((err) => console.log("Error deleting task", err));
   };
