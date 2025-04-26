@@ -17,7 +17,7 @@ function App() {
   //Add a new Tsk
   const addTask = () => {
     axios
-      .post(url, { name, newTask })
+      .post(url, { name: newTask })
       .then((res) => setTasks([...tasks, res.data]))
       .catch((err) => console.log("Error adding task", err));
     setNewTask("");
