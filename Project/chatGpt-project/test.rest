@@ -1,11 +1,34 @@
 ###
-POST http://localhost:5000/tasks
+POST http://localhost:5001/notes
 Content-Type:application/json
 
-    {"name":"Polar bears are interesting creatures"}
+    {"content":"My beautiful is watching reels"}
 
 ###
-GET http://localhost:5000/tasks
+GET http://localhost:5001/notes
+Key: Authorization
+Value: Bearer yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGU3YjA0OTMyNTYxNWMyNDhiNzM3NiIsImlhdCI6MTc0NTc3OTQ2MCwiZXhwIjoxNzQ4MzcxNDYwfQ.eKSGIrQ7GiaacXtQXzMQ2pJRR9HY1sjF0MVCCBbnT48
 
 ###
 DELETE http://localhost:5000/tasks/680bc00c4d7247340c180950
+
+###
+# REGISTER
+POST http://localhost:5001/api/users/register
+Content-Type: application/json
+
+{
+    "name": "Abimbola Godwin",
+    "email": "abimbo@gmail.com",
+    "password": "abimabim"
+}
+
+###
+# Login
+POST http://localhost:5001/api/users/login
+Content-Type: application/json
+
+{
+    "email":"abimbo@gmail.com",
+    "password": "abimabim"
+}

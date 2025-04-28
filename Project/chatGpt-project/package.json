@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon ./03-task-app/index.js",
+    "dev": "nodemon ./04-my-journal/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
