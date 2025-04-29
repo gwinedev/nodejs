@@ -6,8 +6,7 @@ Content-Type:application/json
 
 ###
 GET http://localhost:5001/notes
-Key: Authorization
-Value: Bearer yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGU3YjA0OTMyNTYxNWMyNDhiNzM3NiIsImlhdCI6MTc0NTc3OTQ2MCwiZXhwIjoxNzQ4MzcxNDYwfQ.eKSGIrQ7GiaacXtQXzMQ2pJRR9HY1sjF0MVCCBbnT48
+
 
 ###
 DELETE http://localhost:5000/tasks/680bc00c4d7247340c180950
@@ -18,9 +17,9 @@ POST http://localhost:5001/api/users/register
 Content-Type: application/json
 
 {
-    "name": "Abimbola Godwin",
-    "email": "abimbo@gmail.com",
-    "password": "abimabim"
+    "name": "Okoeguale Kelvin",
+    "email": "kelvin@gmail.com",
+    "password": "kelvin"
 }
 
 ###
@@ -32,3 +31,30 @@ Content-Type: application/json
     "email":"abimbo@gmail.com",
     "password": "abimabim"
 }
+
+###
+# Login
+POST http://localhost:5001/api/users/login
+Content-Type: application/json
+
+{
+    "email":"kelvin@gmail.com",
+    "password": "kelvin"
+}
+
+# routes to journal
+
+###
+POST http://localhost:5001/api/journals
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGY3NmRkMmJjYWE5NzBmZDY1ZWM2ZiIsImlhdCI6MTc0NTk1NDc4MCwiZXhwIjoxNzQ4NTQ2NzgwfQ.fMwthJo8Bq90UfO37om8EL6c2btk-kjLAkG74nxJDbk
+
+{
+    "title": "My second Journal",
+    "content": "I just had a review - a bible review on John 20"
+}
+
+
+###
+GET http://localhost:5001/api/journals
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGY3NmRkMmJjYWE5NzBmZDY1ZWM2ZiIsImlhdCI6MTc0NTk1NDc4MCwiZXhwIjoxNzQ4NTQ2NzgwfQ.fMwthJo8Bq90UfO37om8EL6c2btk-kjLAkG74nxJDbk

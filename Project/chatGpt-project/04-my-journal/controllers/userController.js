@@ -6,7 +6,7 @@ const generateToken = require("../utils/generateToken");
 exports.registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
 
-  const userExists = await User.findOne({ email });
+  const userExist = await User.findOne({ email });
   if (userExist) {
     res.status(400);
     throw new Error("User already exists");
@@ -30,11 +30,11 @@ exports.registerUser = asyncHandler(async (req, res) => {
 });
 
 // Login user
-exxports.loginUser = asyncHandler(async (req, res) => {
+exports.loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });
-  if (user && (await user.matchPassword(passsword))) {
+  if (user && (await user.matchPassword(password))) {
     res.json({
       _id: user._id,
       name: user.name,
