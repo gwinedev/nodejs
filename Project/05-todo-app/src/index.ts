@@ -25,6 +25,30 @@ const CreateTodoSchema = z.object({
 
 const todos: Todo[] = [];
 
+class ApiError extends Error {
+  statusCode: number;
+
+  constructor(message: string, statusCode: number) {
+    super(message);
+    this.statusCode = statusCode;
+  }
+}
+
+class NotFoundError extends ApiError {
+  constructor(message = "Resources not found") {
+    super(message, 404);
+  }
+}
+
+class ValidationError extends ApiError {
+  details?: unknown;
+
+  constructor(message: string, details?: unknown) {
+    super(message, 400);
+    this.details = details;
+  }
+}
+
 app.get("/", (req, res) => {
   res.json({ todos });
 });
@@ -75,6 +99,7 @@ app.delete("/todos/:id", (req, res) => {
   console.log("Todos after delete:", todos);
   res.json(deletedTodo[0]);
 });
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
