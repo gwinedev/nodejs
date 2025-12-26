@@ -31,10 +31,10 @@ export const toggleTodo = (req: Request, res: Response, next: NextFunction) => {
 
 export const deleteTodo = (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { id } = IdParamSchema.parse(id);
+    const { id } = IdParamSchema.parse(req.params);
     const todo = TodoService.deleteTodo(id);
 
-    res.status(200).json(todo);
+    res.status(200).json({"deleted":todo});
   } catch (error) {
     next(error);
   }

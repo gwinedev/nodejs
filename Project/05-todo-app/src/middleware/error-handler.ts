@@ -1,7 +1,7 @@
 import express from "express";
 import { ApiError, ValidationError } from "../utils/error";
 
-export const errorHandler: unknown = (
+export const errorHandler = (
   err: unknown,
   req: express.Request,
   res: express.Response,
